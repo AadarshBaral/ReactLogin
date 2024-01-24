@@ -6,14 +6,14 @@ import { useEffect } from "react";
 export default function Logout() {
   const navigate = useNavigate();
   const { loggedIn, setloggedIn } = useContext(LoginContext);
-    
+
   let logout = () => {
     setloggedIn(false);
     localStorage.removeItem("userId");
-    
+
     useEffect(() => {
-        navigate("/login");
-      }, []);
+      navigate("/login");
+    }, []);
   };
   logout();
   return <div>LoggedOut</div>;

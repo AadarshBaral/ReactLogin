@@ -26,7 +26,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  color : black;
+  color: black;
 
   a {
     font-size: 17px;
@@ -42,6 +42,7 @@ body {
   justify-content: space-between;
   height: 20vh;
   align-items: center;
+
   .logo {
     font-size: 35px;
     font-weight: 600;
@@ -69,7 +70,7 @@ body {
 .people {
   max-width: 1600px;
   margin: auto;
-  color : white;
+  color: white;
 
 
 }
@@ -82,36 +83,39 @@ body {
 
 .user {
   font-size: 30px;
-  margin : 10px;
+  margin: 10px;
   border: 1px solid white;
- 
-  
-  
+
+
+
 
 }
+
 .personDetail {
   max-width: 1600px;
   margin: auto;
 }
 
 .deleteButton {
-  background :rgb(250, 89, 53);
-  padding : 10px;
-  color : white;
+  background: rgb(250, 89, 53);
+  padding: 10px;
+  color: white;
 
   border-radius: 10px;
-  margin-top : 10px;
+  margin-top: 10px;
   font-size: 18px;
 }
+
 .listItem {
-  color : white;
-  padding : 10px;
+  color: white;
+  padding: 10px;
   font-size: 20px;
 }
+
 .dontDeleteButton {
-  background :rgb(250, 89, 53);
-  padding : 10px;
-  color : white;
+  background: rgb(250, 89, 53);
+  padding: 10px;
+  color: white;
 }
 
 /* Apply these styles to the Login form */
@@ -120,7 +124,7 @@ form {
   margin: 0 auto;
   padding: 20px;
   /* border: 1px solid #ccc; */
-  background : rgb(12, 12, 12);
+  background: rgb(12, 12, 12);
   border-radius: 5px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
@@ -140,42 +144,50 @@ input {
   box-sizing: border-box;
 }
 
-input[type="submit"] ,.btn{
+input[type="submit"],
+.btn {
   background-color: #9cffac;
   color: black;
   cursor: pointer;
 }
 
 input[type="submit"]:hover {
-  background-color: #47a22e; /* Darker shade on hover */
+  background-color: #47a22e;
+  /* Darker shade on hover */
 }
+
 .loginHeader {
   font-size: 40px;
   font-weight: 400;
 }
+
 .btn {
-  padding : 15px;
+  padding: 15px;
   font-size: 20px;
-  width : 100%;
+  width: 100%;
 
 }
+
 .hidden {
-  display : none;
+  display: none;
 }
+
 .nav-container {
   display: flex;
-  color : black;
+  color: black;
 }
+
 table {
 
   font-family: arial, sans-serif;
   border-collapse: collapse;
   width: 1000px;
   font-size: 30px;
-  margin : auto;
+  margin: auto;
 }
 
-td, th {
+td,
+th {
   border: 1px solid #dddddd;
   text-align: left;
   padding: 8px;

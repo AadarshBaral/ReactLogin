@@ -45,8 +45,8 @@ export default function Login() {
     e.preventDefault();
     if (filteredItem) {
       if (filteredItem.password === userData.password) {
-        setloggedIn(true)
-        console.log(loggedIn)
+        setloggedIn(true);
+        console.log(loggedIn);
         navigate("/");
         console.log("User login success");
 

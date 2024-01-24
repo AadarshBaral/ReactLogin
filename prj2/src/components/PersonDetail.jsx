@@ -73,7 +73,7 @@ export default function PersonDetail() {
         //   <li className="listItem">First Name: {filteredItem.firstName}</li>
         //   <li className="listItem">Last Name: {filteredItem.lastName}</li>
         //   <li className="listItem">Email: {filteredItem.email}</li>
-  
+
         // </ul>
 
         <form onSubmit={handleSubmit}>
@@ -127,11 +127,10 @@ export default function PersonDetail() {
         </form>
       )}
       <div></div>
-      
-        <Link to={`/delete/${params.userId}`}>
-            <button className="deleteButton">Delete User</button>
-           </Link>
-    </div>
 
+      <Link to={`/delete/${params.userId}`}>
+        <button className="deleteButton">Delete User</button>
+      </Link>
+    </div>
   );
 }

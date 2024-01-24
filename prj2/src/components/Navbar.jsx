@@ -21,27 +21,28 @@ export default function Navbar() {
               {" "}
               <Link to="/">Feed </Link>
             </div>
-            <div >
+            <div>
               {" "}
               {loggedIn ? (
-                <Link className="navLink" to="/logout">Logout</Link>
+                <Link className="navLink" to="/logout">
+                  Logout
+                </Link>
               ) : (
                 <div className="nav-container">
-                  <div >
+                  <div>
                     <Link className="navLink" to="/login">
                       Login
                     </Link>
                   </div>
-                  <div >
-                    <Link  className="navLink" to="/register">
-                      {" "}    Register{" "}  
+                  <div>
+                    <Link className="navLink" to="/register">
+                      {" "}
+                      Register{" "}
                     </Link>
-                
                   </div>
                 </div>
               )}
             </div>
-         
           </div>
         </div>
       </div>

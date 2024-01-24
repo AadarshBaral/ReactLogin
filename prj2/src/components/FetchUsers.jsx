@@ -16,27 +16,26 @@ export default function FetchUsers() {
   }, []);
   return (
     <>
-<table>
-  <thead>
-    <tr>
-      <th>FirstName</th>
-      <th>LastName</th>
-      <th>Email</th>
-    </tr>
-  </thead>
-  <tbody>
-    {userDetail.map((person) => (
-      <tr key={person._id}>
-        <td>
-          <Link to={`/detail/${person._id}`}>{person.firstName}</Link>
-        </td>
-        <td>{person.lastName}</td>
-        <td>{person.email}</td>
-      </tr>
-    ))}
-  </tbody>
-</table>
-
+      <table>
+        <thead>
+          <tr>
+            <th>FirstName</th>
+            <th>LastName</th>
+            <th>Email</th>
+          </tr>
+        </thead>
+        <tbody>
+          {userDetail.map((person) => (
+            <tr key={person._id}>
+              <td>
+                <Link to={`/detail/${person._id}`}>{person.firstName}</Link>
+              </td>
+              <td>{person.lastName}</td>
+              <td>{person.email}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
     </>
   );
 }
