@@ -1,0 +1,37 @@
+import React, { useState, useEffect } from "react";
+import { useParams, useNavigate } from "react-router-dom";
+
+export default function Delete() {
+  const params = useParams();
+  const [isDeleted, setDeleted] = useState(false);
+  const navigate = useNavigate()
+  useEffect(() => {
+    if (!window.confirm("Are you sure?")){
+
+      
+    }
+    fetch(`https://rest-api-bjno.onrender.com/delete/${params.userId}`, {
+      method: "DELETE",
+    })
+      .then((res) => {
+        if (res.ok) {
+          setDeleted(true);
+          navigate('/')
+        } else {
+          console.error("Error deleting user");
+        }
+      })
+      .catch((error) => {
+        console.error("Error deleting user", error);
+      });
+  }, [params.userId]);
+
+
+  return (
+    <div>
+      <h1>Delete User</h1>
+      <p>Deleting user with ID: {params.userId}</p>
+      
+    </div>
+  );
+}
