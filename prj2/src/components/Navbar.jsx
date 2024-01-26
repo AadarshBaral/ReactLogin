@@ -1,10 +1,12 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate, useNavigation } from "react-router-dom";
 import { LoginContext } from "../Context/LoginContext";
 import { useContext } from "react";
+import toast, { Toaster } from "react-hot-toast";
+import { useLoginContext } from "../Context/LoginContext";
 export default function Navbar() {
-  const { loggedIn, setloggedIn } = useContext(LoginContext);
-
+  const { loggedIn, setloggedIn } = useLoginContext();
+  const navigate = useNavigate();
   return (
     <>
       <div className="max-width-container">
@@ -24,9 +26,23 @@ export default function Navbar() {
             <div>
               {" "}
               {loggedIn ? (
-                <Link className="navLink" to="/logout">
-                  Logout
-                </Link>
+                <div className="nav2">
+                  <button
+                    className="navLink"
+                    onClick={() => {
+                      localStorage.removeItem("userId");
+                      toast("Logout Success");
+                      navigate("/login");
+                      setloggedIn(false);
+                    }}
+                  >
+                    Logout
+                  </button>
+
+                  <Link className="navLink profile" to={"/profile"}>
+                    Profile
+                  </Link>
+                </div>
               ) : (
                 <div className="nav-container">
                   <div>

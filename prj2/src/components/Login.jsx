@@ -1,20 +1,18 @@
 import React, { useState } from "react";
-import { useEffect, useContext } from "react";
+import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
-import { LoginContext } from "../Context/LoginContext";
+// import { LoginContext } from "../Context/LoginContext";
+import toast, { Toaster } from "react-hot-toast";
+import LoginInput from "./LoginInput";
+import { useLoginContext } from "../Context/LoginContext";
 export default function Login() {
-  const { loggedIn, setloggedIn } = useContext(LoginContext);
-
+  // const { loggedIn, setloggedIn } = useContext(LoginContext);
+  const { loggedIn, setloggedIn } = useLoginContext();
   const navigate = useNavigate();
-  let [users, setUsers] = useState([]);
-  const [isBusy, setBusy] = useState(true);
-
-  const [filteredItem, setFilteredItem] = useState(null);
   let [userData, setUserData] = useState({
     email: "",
     password: "",
   });
-
   const handleChange = (e) => {
     const { name, value } = e.target;
     setUserData((prevData) => ({
@@ -22,64 +20,54 @@ export default function Login() {
       [name]: value,
     }));
   };
-
-  useEffect(() => {
-    fetch(" https://rest-api-bjno.onrender.com/users")
-      .then((res) => {
-        return res.json();
-      })
-      .then((data) => {
-        setUsers(data);
-        setBusy(false);
-      });
-  }, [users]);
-
-  useEffect(() => {
-    if (!isBusy) {
-      const user = users.find((user) => user.email === userData.email);
-      setFilteredItem(user);
-    }
-  }, [isBusy, users]);
-
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (filteredItem) {
-      if (filteredItem.password === userData.password) {
+    fetch("https://rest-api-bjno.onrender.com/login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(userData),
+    })
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+        return response.json();
+      })
+      .then((data) => {
         setloggedIn(true);
+        localStorage.setItem("userId", data.data._id);
         console.log(loggedIn);
+        toast("Login Success");
         navigate("/");
-        console.log("User login success");
-
-        localStorage.setItem("userId", filteredItem._id);
-      } else {
-        console.log("Invalid Password");
-      }
-    } else {
-      console.log("user not found");
-      setloggedIn(false);
-    }
+      })
+      .catch((error) => {
+        console.error("login failed:", error.message);
+        toast.error("login failed. Check Credentials");
+      });
   };
   return (
     <>
       <form onSubmit={handleSubmit}>
         <div className="loginHeader">Login</div>
-        <label>Email</label>
-        <input
-          type="text"
-          placeholder="email"
-          name="email"
-          value={userData.email}
-          onChange={handleChange}
-          required
+        <LoginInput
+          props={{
+            label: "Email Here",
+            name: "email",
+            type: "text",
+            handleChange,
+            value: userData.email,
+          }}
         />
-        <label>Password</label>
-        <input
-          type="password"
-          placeholder="password"
-          name="password"
-          value={userData.password}
-          onChange={handleChange}
-          required
+        <LoginInput
+          props={{
+            label: "Password",
+            name: "password",
+            type: "password",
+            handleChange,
+            value: userData.password,
+          }}
         />
         <input type="submit" />
       </form>

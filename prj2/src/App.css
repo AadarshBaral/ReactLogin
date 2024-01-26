@@ -85,10 +85,6 @@ body {
   font-size: 30px;
   margin: 10px;
   border: 1px solid white;
-
-
-
-
 }
 
 .personDetail {
@@ -100,7 +96,7 @@ body {
   background: rgb(250, 89, 53);
   padding: 10px;
   color: white;
-
+  width: 100%;
   border-radius: 10px;
   margin-top: 10px;
   font-size: 18px;
@@ -196,3 +192,84 @@ th {
 tr:nth-child(even) {
   background-color: #080808;
 }
+
+.spinner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50vh;
+}
+
+.lds-hourglass {
+  display: inline-block;
+  position: relative;
+  width: 80px;
+  height: 80px;
+}
+
+.lds-hourglass:after {
+  content: " ";
+  display: block;
+  border-radius: 50%;
+  width: 0;
+  height: 0;
+  margin: 8px;
+  box-sizing: border-box;
+  border: 32px solid #fff;
+  border-color: #fff transparent #fff transparent;
+  animation: lds-hourglass 1.2s infinite;
+}
+
+@keyframes lds-hourglass {
+  0% {
+    transform: rotate(0);
+    animation-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+  }
+
+  50% {
+    transform: rotate(900deg);
+    animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+  }
+
+  100% {
+    transform: rotate(1800deg);
+  }
+}
+
+.profile_user {
+  background: black;
+  padding: 20px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 500px;
+  border-radius: 10px;
+
+  img {
+    width: 150px;
+    height: 150px;
+    border-radius: 20px;
+  }
+
+  ;
+
+}
+
+.nav2 {
+  display: flex;
+
+
+}
+
+.profile {
+  color: rgb(4, 52, 107);
+  background: rgb(136, 197, 255);
+}
+
+.password_check {
+  color: #a0a0a0;
+}
+
+/* .length-check {
+  color: green;
+} */
